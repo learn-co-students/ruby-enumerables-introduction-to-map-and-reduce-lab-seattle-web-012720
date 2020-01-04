@@ -1,6 +1,13 @@
 # My Code here....
 def map_to_negativize(source_array)
-  source_array.map{|x|-x}
+  new = []
+  i=0 
+  while i<source_array.length do
+    source_array[i] *= -1
+    new << source_array[i]
+    i+=1 
+  end
+  new
 end
 
 def map_to_no_change(source_array)
@@ -8,21 +15,56 @@ def map_to_no_change(source_array)
 end
 
 def map_to_double(source_array)
-  source_array.map{|x|2*x}
+  new = []
+  i=0 
+  while i<source_array.length do
+    source_array[i] *= 2
+    new << source_array[i]
+    i+=1 
+  end
+  new
 end
 
 def map_to_square(source_array)
-  source_array.map{|x|x**2}
+    new = []
+  i=0 
+  while i<source_array.length do
+    new << (source_array[i])**2
+    i+=1 
+  end
+  new
 end
 
 def reduce_to_total(source_array, starting_point=0)
-    source_array.sum(starting_point)
+  total = starting_point
+  i = 0 
+  while i<source_array.length do
+      total += source_array[i]
+      i+=1 
+  end
+  total
 end
 
 def reduce_to_all_true(source_array)
-  source_array.all?
+  i=0 
+  while i<source_array.length do
+    if !source_array[i]
+      return FALSE
+    else
+      i+=1 
+    end
+  end
+  return true
 end
 
 def reduce_to_any_true(source_array)
-  source_array.any?
+  i=0 
+  while i<source_array.length do
+    if source_array[i]
+      return true
+    else
+      i+=1 
+    end
+  end
+  return false
 end
