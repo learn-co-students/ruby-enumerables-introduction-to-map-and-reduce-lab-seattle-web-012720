@@ -59,8 +59,6 @@ def reduce_to_all_true(source_array)
 end
 
 def reduce_to_any_true(source_array)
-    puts "source_array"
-  puts source_array
   return_val = false
   for i in source_array do
     if(i == true)
