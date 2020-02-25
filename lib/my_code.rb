@@ -1,69 +1,63 @@
 def map_to_negativize(source_array)
-  new_array = []
-  i = 0 
-  while i < source_array.length do 
-    new_array.push(source_array[i] * -1)
-    i += 1 
+  # new_array = []
+  # i = 0
+  # while i < source_array.length do 
+  #   new_array.push(source_array[i] * -1)
+  #   i+=1
+  # end
+  # new_array
+
+  source_array.map do |i|
+    i * -1
   end
-  return new_array
 end
 
 def map_to_no_change(source_array)
-  new_array = []
-  i = 0 
-  while i < source_array.length do 
-    new_array.push(source_array[i])
-    i += 1 
+  # new_array = []
+  # i = 0
+  # while i < source_array.length do
+  #   new_array << source_array[i]
+  #   i+=1
+  # end
+  # new_array
+
+  source_array.map do |i|
+    i
   end
-  return new_array
 end
 
 def map_to_double(source_array)
   new_array = []
   i = 0 
-  while i < source_array.length do 
+  while i  < source_array.length do
     new_array.push(source_array[i] * 2)
-  i += 1 
-end 
-return new_array
+    i+=1
+  end
+  new_array
 end
 
 def map_to_square(source_array)
-  new_array = []
-  i = 0 
-  while i < source_array.length do 
-    new_array.push(source_array[i] ** 2)
-    i += 1 
-    end
-    new_array
+  source_array.map do |x| 
+    x**2 
   end
+end
   
-  def reduce_to_total(source_array, starting_point = 0)
-    sum = starting_point
-    i = 0 
-    while i < source_array.length do 
-      sum += source_array[i]
-      i += 1 
-  end 
-  return sum 
+def reduce_to_total(source_array, starting_point = 0)
+  source_array.reduce(starting_point) do |total, element|
+    total + element
+  end
 end
 
 def reduce_to_all_true(source_array)
-  i = 0 
-  while i < source_array.length do
-    return false if source_array[i] == false 
-    i += 1 
-end 
-return true 
+  source_array.reduce do |x, point|
+    !!x && !!point
+  end
 end
 
 def reduce_to_any_true(source_array)
-  i = 0 
-  while i < source_array.length do
-    return true if source_array[i] == true
-    i += 1 
-end 
-return false 
+  source_array.reduce do |x, point|
+    !!x || !!point
+  end
 end
 
   
